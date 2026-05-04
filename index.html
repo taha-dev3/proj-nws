@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,15 +8,13 @@
 
 <style>
 
-    body {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-      background: #0f172a;
-    }
-body{
+*{
   margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
   font-family:Arial, sans-serif;
   background:#0f172a;
 }
@@ -25,59 +24,53 @@ nav{
   display:flex;
   justify-content:space-between;
   align-items:center;
-
-  padding:18px 70px;   /* 👈 better spacing */
-
+  padding:18px 70px;
   background: linear-gradient(90deg, #f1498c, #1e293b, #2fece6);
-  
   backdrop-filter: blur(12px);
-
   position: sticky;
   top:0;
   z-index:1000;
-
   border-bottom:1px solid rgba(255,255,255,0.08);
 }
 
-/* LOGO */
 .logo{
   font-size:26px;
   font-weight:bold;
-  color:#000000;
+  color:#000;
   letter-spacing:2px;
-
   text-shadow: 0 0 10px #38bdf8;
 }
 
-/* MENU */
 nav ul{
   display:flex;
   list-style:none;
-
-  gap:40px;   
-  padding:0;
-  margin:0;
+  gap:40px;
 }
 
-/* LINKS */
 nav ul li a{
   text-decoration:none;
   color:#e2e8f0;
   font-size:16px;
-
-  padding:8px 12px;  /* 👈 clickable area better */
+  padding:8px 12px;
   border-radius:8px;
-
   transition:0.3s;
 }
 
-/* HOVER EFFECT */
 nav ul li a:hover{
-  background: rgba(0, 0, 0, 0.938);
+  background:#000;
   color:white;
   transform: translateY(-2px);
 }
 
+/* MOBILE MENU BUTTON */
+.menu-toggle{
+  display:none;
+  font-size:26px;
+  color:white;
+  cursor:pointer;
+}
+
+/* CURSOR */
 .cursor{
   width:15px;height:15px;
   background:#48f579bd;
@@ -90,72 +83,49 @@ nav ul li a:hover{
 /* HERO */
 .hero{
   text-align:center;
-  background: #000;
+  background:#000;
   padding:80px 20px;
 }
-.hero h2{
-  font-size:50px;
-  background:linear-gradient(90deg,#38bdf8,#a78bfa);
-  -webkit-background-clip:text;
-  color:transparent;
+
+.hero img{
+  max-width:100%;
+  height:auto;
 }
-/* Container */
+
+/* CARDS */
 .cards {
-  display: flex;
-  gap: 20px;
-  padding: 40px;
+  display:flex;
+  gap:20px;
+  padding:40px;
+  flex-wrap:wrap;
 }
 
-/* Common Card Style */
 .card1, .card2 {
-  margin: auto;
- flex: 0.4;
-  height: 220px;
-  padding: 20px;
-  border-radius: 15px;
-
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  transition: all 0.4s ease;
-  position: relative;
-  overflow: hidden;
+  flex:1 1 45%;
+  height:220px;
+  border-radius:15px;
+  background-size:cover;
+  background-position:center;
+  transition:0.4s;
+  position:relative;
+  overflow:hidden;
 }
 
-/* Images */
 .card1 {
-  background-image: url("https://tse3.mm.bing.net/th/id/OIP.U5_AgeFwFEHPxxhAJY994gHaEK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3");
+  background-image: url("https://tse3.mm.bing.net/th/id/OIP.U5_AgeFwFEHPxxhAJY994gHaEK");
 }
 
 .card2 {
-  background-image: url("https://tse1.mm.bing.net/th/id/OIP.LRlh6OP9TOFtIkbeNUxRUgHaEK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3");
+  background-image: url("https://tse1.mm.bing.net/th/id/OIP.LRlh6OP9TOFtIkbeNUxRUgHaEK");
 }
 
-/* Hover Effect (Same for both) */
 .card1:hover,
 .card2:hover {
-  transform: scale(1.08);
-  box-shadow: 0 15px 40px rgba(58, 57, 57, 0.6);
+  transform: scale(1.05);
+  box-shadow: 0 15px 40px rgba(58,57,57,0.6);
 }
 
-/* Optional Overlay Effect */
-.card1::before,
-.card2::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.3);
-  transition: 0.3s;
-}
-
-.card1:hover::before,
-.card2:hover::before {
-  background: rgba(0,0,0,0.1);
-}
-
-
-
+/* SECTION */
 .full{
   margin:40px;
   padding:60px;
@@ -170,26 +140,88 @@ nav ul li a:hover{
   line-height:1.8;
 }
 
+/* FOOTER */
 footer{
   background:#020617;
-  color: white;
+  color:white;
   padding:60px 40px;
 }
+
 .footer-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:30px;
 }
+
 footer h3{margin-bottom:15px;color:#38bdf8;}
 footer p{font-size:14px;line-height:1.6;}
-p {
-  text-align: start;
+
+/* TEXT */
+p{text-align:start;}
+h2{text-decoration: underline wavy rgb(115, 49, 161);}
+
+/* 🔥 RESPONSIVE */
+
+/* Tablet */
+@media (max-width: 992px){
+  nav{
+    padding:15px 30px;
+  }
+
+  .footer-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
 }
-h2{
-  text-decoration: underline wavy rgb(115, 49, 161) ;
+
+/* Mobile */
+@media (max-width: 768px){
+
+  nav{
+    padding:15px 20px;
+  }
+
+  .menu-toggle{
+    display:block;
+  }
+
+  nav ul{
+    position:absolute;
+    top:70px;
+    right:0;
+    background:#020617;
+    width:100%;
+    flex-direction:column;
+    align-items:center;
+    display:none;
+    padding:20px 0;
+  }
+
+  nav ul.active{
+    display:flex;
+  }
+
+  .cards{
+    flex-direction:column;
+    padding:20px;
+  }
+
+  .card1, .card2{
+    flex:1 1 100%;
+  }
+
+  .full{
+    margin:20px;
+    padding:30px;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr;
+  }
 }
+
 </style>
 </head>
+
 <body>
 
 <div class="cursor" id="cursor"></div>
@@ -197,38 +229,35 @@ h2{
 <nav>
   <div class="logo">Taha Mustafa</div>
 
-  <ul>
-    <li><a href="index.html" class="active">Home</a></li>
+  <div class="menu-toggle">☰</div>
+
+  <ul id="menu">
+    <li><a href="index.html">Home</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
 </nav>
+
 <section class="hero">
-  <img src="https://cdn.textstudio.com/output/sample/normal/9/1/8/8/taha-logo-832-28819.png " >
-  
+  <img src="https://cdn.textstudio.com/output/sample/normal/9/1/8/8/taha-logo-832-28819.png">
 </section>
+
 <section class="cards">
   <div class="card1"></div>
   <div class="card2"></div>
-  </section>
-
-<section class="full">
-<h1> (Lines)</h1>
-
-  <h2>Believe in yourself. You are braver than you think, more talented than you know, and capable of more than you imagine</h2>
-<p><br><br> (1)“May your choices reflect your hopes, not your fears.” — Nelson Mandela 
-<br><br>
-(2)“Success is walking from failure to failure with no loss of enthusiasm.” — Winston Churchill 
-<br><br>
-(3)“Try not to become a person of success, but rather try to become a person of value.” — Albert Einstein 
-<br><br>
-(4)“Take up one idea. Make that one idea your life… This is the way to success.” — Swami Vivekananda 
-</p>
-
 </section>
 
-<section class="content">
+<section class="full">
+  <h1>(Lines)</h1>
 
+  <h2>Believe in yourself. You are braver than you think...</h2>
+
+  <p>
+    (1) May your choices reflect your hopes, not your fears.<br><br>
+    (2) Success is walking from failure to failure...<br><br>
+    (3) Try not to become a person of success...<br><br>
+    (4) Take up one idea...
+  </p>
 </section>
 
 <footer>
@@ -243,18 +272,25 @@ h2{
     </div>
     <div>
       <h3>Contact</h3>
-      <p>tahamustafa8787@gmail.com </p>
+      <p>tahamustafa8787@gmail.com</p>
     </div>
   </div>
 </footer>
 
 <script>
+/* cursor */
 document.addEventListener("mousemove", (e)=>{
   const cursor = document.getElementById("cursor");
   cursor.style.left = e.clientX + "px";
   cursor.style.top = e.clientY + "px";
 });
+
+/* mobile menu */
+document.querySelector(".menu-toggle").onclick = () => {
+  document.getElementById("menu").classList.toggle("active");
+};
 </script>
 
 </body>
 </html>
+```
