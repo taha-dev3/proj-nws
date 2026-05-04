@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+    }
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#0f172a;
+}
+
+/* NAVBAR */
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  padding:18px 70px;   /* 👈 better spacing */
+
+  background: linear-gradient(90deg, #9bf1b7, #7097d7, #ae0982);
+  
+  backdrop-filter: blur(12px);
+
+  position: sticky;
+  top:0;
+  z-index:1000;
+
+  border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+/* LOGO */
+.logo{
+  font-size:26px;
+  font-weight:bold;
+  color:#160225;
+  letter-spacing:2px;
+
+  text-shadow: 0 0 19px black;
+}
+
+/* MENU */
+nav ul{
+  display:flex;
+  list-style:none;
+
+  gap:40px;   
+  padding:0;
+  margin:0;
+}
+
+/* LINKS */
+nav ul li a{
+  text-decoration:none;
+  color:#e2e8f0;
+  font-size:16px;
+
+  padding:8px 12px;  /* 👈 clickable area better */
+  border-radius:8px;
+
+  transition:0.3s;
+}
+
+/* HOVER EFFECT */
+nav ul li a:hover{
+  background: rgb(0, 0, 0);
+  color:white;
+  transform: translateY(-2px);
+}
+
+
+
+    .about-section {
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .about-section h2 {
+      font-size: 40px;
+      margin-bottom: 20px;
+      color: #38bdf8;
+    }
+
+    .about-section p {
+      max-width: 700px;
+      margin: auto;
+      font-size: 18px;
+      line-height: 1.6;
+      color: #cbd5f5;
+    }
+
+    .card {
+      margin-top: 40px;
+      background: #1e293b;
+      padding: 30px;
+      border-radius: 12px;
+      width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+    }
+
+    .card h3 {
+      color: #38bdf8;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  
+<nav>
+  <div class="logo">Taha Mustafa</div>
+
+  <ul>
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+  <section class="about-section">
+    <h2>About Me</h2>
+
+    <p>
+      Hello! My name is <b>Taha Mustafa</b>.  
+      I am a passionate web developer who loves creating modern and stylish websites using HTML, CSS, and JavaScript.  
+      I enjoy designing beautiful UI and adding cool animations to make websites look amazing.
+    </p>
+
+    <div class="card">
+      <h3>My Skills</h3>
+      <p>HTML, CSS, JavaScript, UI Design</p>
+    </div>
+
+  </section>
+
+</body>
+</html>
