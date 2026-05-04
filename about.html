@@ -1,20 +1,21 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About</title>
 
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-      background: #0f172a;
-    }
-body{
+<style>
+
+/* RESET */
+*{
   margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
   font-family:Arial, sans-serif;
   background:#0f172a;
 }
@@ -24,130 +25,174 @@ nav{
   display:flex;
   justify-content:space-between;
   align-items:center;
-
-  padding:18px 70px;   /* 👈 better spacing */
-
+  padding:18px 70px;
   background: linear-gradient(90deg, #9bf1b7, #7097d7, #ae0982);
-  
   backdrop-filter: blur(12px);
-
   position: sticky;
   top:0;
   z-index:1000;
-
-  border-bottom:1px solid rgba(255,255,255,0.08);
 }
 
-/* LOGO */
 .logo{
   font-size:26px;
   font-weight:bold;
   color:#160225;
   letter-spacing:2px;
-
   text-shadow: 0 0 19px black;
 }
 
-/* MENU */
 nav ul{
   display:flex;
   list-style:none;
-
-  gap:40px;   
-  padding:0;
-  margin:0;
+  gap:40px;
 }
 
-/* LINKS */
 nav ul li a{
   text-decoration:none;
   color:#e2e8f0;
-  font-size:16px;
-
-  padding:8px 12px;  /* 👈 clickable area better */
+  padding:8px 12px;
   border-radius:8px;
-
   transition:0.3s;
 }
 
-/* HOVER EFFECT */
 nav ul li a:hover{
-  background: rgb(0, 0, 0);
+  background:black;
   color:white;
-  transform: translateY(-2px);
 }
 
+/* MOBILE MENU */
+.menu-toggle{
+  display:none;
+  font-size:26px;
+  color:white;
+  cursor:pointer;
+}
 
+/* ABOUT SECTION */
+.about-section {
+  text-align:center;
+  padding:80px 20px;
+}
 
-    .about-section {
-      text-align: center;
-      padding: 80px 20px;
-    }
+.about-section h2 {
+  font-size: clamp(26px,5vw,40px);
+  margin-bottom:20px;
+  color:#38bdf8;
+}
 
-    .about-section h2 {
-      font-size: 40px;
-      margin-bottom: 20px;
-      color: #38bdf8;
-    }
+.about-section p {
+  max-width:700px;
+  margin:auto;
+  font-size: clamp(14px,2vw,18px);
+  line-height:1.6;
+  color:#cbd5f5;
+}
 
-    .about-section p {
-      max-width: 700px;
-      margin: auto;
-      font-size: 18px;
-      line-height: 1.6;
-      color: #cbd5f5;
-    }
+/* CARD */
+.card {
+  margin-top:40px;
+  background:#1e293b;
+  padding:30px;
+  border-radius:12px;
+  width:300px;
+  margin-left:auto;
+  margin-right:auto;
+  box-shadow:0 0 20px rgba(0,0,0,0.4);
+  transition:0.3s;
+}
 
-    .card {
-      margin-top: 40px;
-      background: #1e293b;
-      padding: 30px;
-      border-radius: 12px;
-      width: 300px;
-      margin-left: auto;
-      margin-right: auto;
-      box-shadow: 0 0 20px rgba(0,0,0,0.4);
-      transition: 0.3s;
-    }
+.card:hover {
+  transform: translateY(-10px);
+}
 
-    .card:hover {
-      transform: translateY(-10px);
-    }
+.card h3 {
+  color:#38bdf8;
+}
 
-    .card h3 {
-      color: #38bdf8;
-      margin-bottom: 10px;
-    }
-  </style>
+/* 🔥 RESPONSIVE */
+
+/* Tablet */
+@media (max-width: 992px){
+  nav{
+    padding:15px 30px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px){
+
+  nav{
+    padding:15px 20px;
+  }
+
+  .menu-toggle{
+    display:block;
+  }
+
+  nav ul{
+    position:absolute;
+    top:70px;
+    right:0;
+    width:100%;
+    background:#020617;
+    flex-direction:column;
+    align-items:center;
+    display:none;
+    padding:20px 0;
+  }
+
+  nav ul.active{
+    display:flex;
+  }
+
+  .card{
+    width:90%;
+  }
+
+  .about-section{
+    padding:50px 15px;
+  }
+}
+
+</style>
 </head>
 
 <body>
 
-  
 <nav>
   <div class="logo">Taha Mustafa</div>
 
-  <ul>
-    <li><a href="index.html" class="active">Home</a></li>
+  <div class="menu-toggle">☰</div>
+
+  <ul id="menu">
+    <li><a href="index.html">Home</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
 </nav>
-  <section class="about-section">
-    <h2>About Me</h2>
 
-    <p>
-      Hello! My name is <b>Taha Mustafa</b>.  
-      I am a passionate web developer who loves creating modern and stylish websites using HTML, CSS, and JavaScript.  
-      I enjoy designing beautiful UI and adding cool animations to make websites look amazing.
-    </p>
+<section class="about-section">
+  <h2>About Me</h2>
 
-    <div class="card">
-      <h3>My Skills</h3>
-      <p>HTML, CSS, JavaScript, UI Design</p>
-    </div>
+  <p>
+    Hello! My name is <b>Taha Mustafa</b>.  
+    I am a passionate web developer who loves creating modern and stylish websites using HTML, CSS, and JavaScript.  
+    I enjoy designing beautiful UI and adding cool animations to make websites look amazing.
+  </p>
 
-  </section>
+  <div class="card">
+    <h3>My Skills</h3>
+    <p>HTML, CSS, JavaScript, UI Design</p>
+  </div>
+
+</section>
+
+<script>
+document.querySelector(".menu-toggle").onclick = () => {
+  document.getElementById("menu").classList.toggle("active");
+};
+</script>
 
 </body>
 </html>
+```
