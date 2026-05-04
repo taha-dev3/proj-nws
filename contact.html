@@ -1,23 +1,24 @@
+```html id="zqk8ra"
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact</title>
 
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      background: #0f172a;
-      color: white;
-    }
+<style>
+
+/* RESET */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
 body{
-  margin:0;
   font-family:Arial, sans-serif;
   background:#0f172a;
+  color:white;
 }
 
 /* NAVBAR */
@@ -25,120 +26,157 @@ nav{
   display:flex;
   justify-content:space-between;
   align-items:center;
-
-  padding:18px 70px;   /* 👈 better spacing */
-
+  padding:18px 70px;
   background: linear-gradient(90deg, #f8e705, #1e3b25, #a2cdae);
-  
   backdrop-filter: blur(12px);
-
   position: sticky;
   top:0;
   z-index:1000;
-
-  border-bottom:1px solid rgba(255,255,255,0.08);
 }
 
-/* LOGO */
 .logo{
   font-size:26px;
   font-weight:bold;
-  color:#000000;
+  color:#000;
   letter-spacing:2px;
-
   text-shadow: 0 0 10px #38bdf8;
 }
 
-/* MENU */
 nav ul{
   display:flex;
   list-style:none;
-
-  gap:40px;   
-  padding:0;
-  margin:0;
+  gap:40px;
 }
 
-/* LINKS */
 nav ul li a{
   text-decoration:none;
   color:#e2e8f0;
-  font-size:16px;
-
-  padding:8px 12px;  /* 👈 clickable area better */
+  padding:8px 12px;
   border-radius:8px;
-
   transition:0.3s;
 }
 
-/* HOVER EFFECT */
 nav ul li a:hover{
-  background: rgba(0, 0, 0, 0.916);
+  background:black;
   color:white;
-  transform: translateY(-2px);
 }
 
+/* MOBILE MENU */
+.menu-toggle{
+  display:none;
+  font-size:26px;
+  cursor:pointer;
+}
 
+/* CONTACT */
+.contact {
+  text-align:center;
+  padding:70px 20px;
+}
 
-    .contact {
-      text-align: center;
-      padding: 70px 20px;
-    }
+.contact h2 {
+  font-size: clamp(26px,5vw,40px);
+  color:#38bdf8;
+  margin-bottom:20px;
+}
 
-    .contact h2 {
-      font-size: 40px;
-      color: #38bdf8;
-      margin-bottom: 20px;
-    }
+.info {
+  margin-bottom:30px;
+  color:#cbd5f5;
+  font-size: clamp(14px,2vw,18px);
+}
 
-    .info {
-      margin-bottom: 30px;
-      color: #cbd5f5;
-    }
+/* FORM CARD */
+.card {
+  background:#1e293b;
+  padding:30px;
+  border-radius:12px;
+  max-width:400px;
+  margin:auto;
+  box-shadow:0 0 20px rgba(0,0,0,0.5);
+  transition:0.3s;
+}
 
-    .card {
-      background: #1e293b;
-      padding: 30px;
-      border-radius: 12px;
-      max-width: 400px;
-      margin: auto;
-      box-shadow: 0 0 20px rgba(0,0,0,0.5);
-    }
+.card:hover {
+  transform: translateY(-10px);
+}
 
-    .card input,
-    .card textarea {
-      width: 100%;
-      padding: 12px;
-      margin: 10px 0;
-      border: none;
-      border-radius: 8px;
-      outline: none;
-      background: #0f172a;
-      color: white;
-    }
+.card input,
+.card textarea {
+  width:100%;
+  padding:12px;
+  margin:10px 0;
+  border:none;
+  border-radius:8px;
+  outline:none;
+  background:#0f172a;
+  color:white;
+}
 
-    .card button {
-      width: 100%;
-      padding: 12px;
-      background: #38bdf8;
-      border: none;
-      border-radius: 8px;
-      color: black;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.3s;
-    }
+.card button {
+  width:100%;
+  padding:12px;
+  background:#38bdf8;
+  border:none;
+  border-radius:8px;
+  color:black;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.3s;
+}
 
-    .card button:hover {
-      background: #0ea5e9;
-      transform: scale(1.05);
-    }
+.card button:hover {
+  background:#0ea5e9;
+  transform: scale(1.05);
+}
 
-    .card:hover {
-      transform: translateY(-10px);
-      transition: 0.3s;
-    }
-  </style>
+/* 🔥 RESPONSIVE */
+
+/* Tablet */
+@media (max-width: 992px){
+  nav{
+    padding:15px 30px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px){
+
+  nav{
+    padding:15px 20px;
+  }
+
+  .menu-toggle{
+    display:block;
+  }
+
+  nav ul{
+    position:absolute;
+    top:70px;
+    right:0;
+    width:100%;
+    background:#020617;
+    flex-direction:column;
+    align-items:center;
+    display:none;
+    padding:20px 0;
+  }
+
+  nav ul.active{
+    display:flex;
+  }
+
+  .contact{
+    padding:50px 15px;
+  }
+
+  .card{
+    width:90%;
+    padding:20px;
+  }
+}
+
+</style>
 </head>
 
 <body>
@@ -146,28 +184,38 @@ nav ul li a:hover{
 <nav>
   <div class="logo">Taha Mustafa</div>
 
-  <ul>
-    <li><a href="index.html" class="active">Home</a></li>
+  <div class="menu-toggle">☰</div>
+
+  <ul id="menu">
+    <li><a href="index.html">Home</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
 </nav>
-  <section class="contact">
-    <h2>Contact Me</h2>
 
-    <div class="info">
-      <p><b>Phone:</b> 0322242491</p>
-      <p><b>Email:</b> tahamustafa878@gmail.com</p>
-    </div>
+<section class="contact">
+  <h2>Contact Me</h2>
 
-    <div class="card">
-      <input type="text" placeholder="Your Name">
-      <input type="email" placeholder="Your Email">
-      <textarea rows="4" placeholder="Your Message"></textarea>
-      <button>Send Message</button>
-    </div>
+  <div class="info">
+    <p><b>Phone:</b> 0322242491</p>
+    <p><b>Email:</b> tahamustafa878@gmail.com</p>
+  </div>
 
-  </section>
+  <div class="card">
+    <input type="text" placeholder="Your Name">
+    <input type="email" placeholder="Your Email">
+    <textarea rows="4" placeholder="Your Message"></textarea>
+    <button>Send Message</button>
+  </div>
+
+</section>
+
+<script>
+document.querySelector(".menu-toggle").onclick = () => {
+  document.getElementById("menu").classList.toggle("active");
+};
+</script>
 
 </body>
 </html>
+```
